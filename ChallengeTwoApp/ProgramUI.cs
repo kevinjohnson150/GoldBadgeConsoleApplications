@@ -70,7 +70,7 @@ namespace ChallengeTwoApp
             {
 
                 Console.WriteLine($"    {claim.ClaimID} --- {claim.Description} --- {claim.ClaimAmount} --- {claim.DateOfIncident} --- {claim.DateOfClaim} --- {claim.IsValid}");
-                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------\n\n");
+                Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------\n\n");
             }
         }
 
@@ -92,7 +92,7 @@ namespace ChallengeTwoApp
             }
             else
             {
-                Console.WriteLine("I'm sorry but I do not understand. Claim has not been completed. Press any key to continue....");
+                Console.WriteLine("\nClaim has not been completed. Select an option below to continue....\n\n");
             }
         }
 
@@ -131,7 +131,6 @@ namespace ChallengeTwoApp
             }
 
             _queueOfClaimsRepo.AddClaimToList(newClaim);
-        
         }
 
         public void WritePeekedCalim(Claim claims)
@@ -142,7 +141,7 @@ namespace ChallengeTwoApp
                     $"Claim Amount: {claims.ClaimAmount}\n" +
                     $"Date Of Incident: {claims.DateOfIncident}\n" +
                     $"Date Of Claim: {claims.DateOfClaim}\n" +
-                    $"Is Valid: {claims.IsValid}");
+                    $"Is Valid: {claims.IsValid}\n\n");
         }
 
         private void SeedClaims()

@@ -21,5 +21,17 @@ namespace ChallengeThreeLibrary
         {
             
         }
+
+        //Update
+        public bool UpdateDoorsForBadges(string originalDoors, BadgingSystem newDoors)
+        {
+
+        }
+
+        //Delete
+        public bool RemoveDoorFromBadges(string door)
+        {
+
+        }
     }
 }
