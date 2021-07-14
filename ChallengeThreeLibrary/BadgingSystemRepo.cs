@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChallengeThreeLibrary
 {
-    class BadgingSystemRepo
+    public class BadgingSystemRepo
     {
         Dictionary<int, List<string>> _badgeDictionary = new Dictionary<int, List<string>>();
 
@@ -17,21 +17,50 @@ namespace ChallengeThreeLibrary
         }
 
         //Read
-        public Dictionary<int, List<BadgingSystem>> GetBadgeList()
+        public Dictionary<int, List<string>> GetBadgeList()
         {
-            
+            foreach (var content in _badgeDictionary)
+            {
+                return _badgeDictionary;
+            }
+            return null;
         }
 
         //Update
-        public bool UpdateDoorsForBadges(string originalDoors, BadgingSystem newDoors)
-        {
-
-        }
+      //  public bool UpdateDoorsForBadges(int badgeID, BadgingSystem badge)
+       // {
+            
+       // }
 
         //Delete
-        public bool RemoveDoorFromBadges(string door)
-        {
 
+
+        //Helper Method
+        public BadgingSystem GetBadgeByID(int badgeID)
+        {
+            foreach (var content in _badgeDictionary)
+            {
+                if (content.Key == badgeID)
+                {
+                    return new BadgingSystem(content.Key, content.Value);
+                }
+            }
+            return null;
+        }
+
+        public string GetDoor (string doorName)
+        {
+            foreach (var content in _badgeDictionary)
+            {
+                foreach (var item in content.Value)
+                {
+                    if (item == doorName)
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
         }
     }
 }
