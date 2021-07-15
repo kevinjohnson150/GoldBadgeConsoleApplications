@@ -49,12 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BadgingSystemTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BadgingSystemRepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeThreeLibrary\ChallengeThreeLibrary.csproj">
+      <Project>{B36B9BB3-B23B-4183-BEA8-D035BC7BD8B9}</Project>
+      <Name>ChallengeThreeLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

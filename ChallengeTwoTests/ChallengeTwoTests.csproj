@@ -49,12 +49,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClaimTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClaimRepoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallengeTwoLibrary\ChallengeTwoLibrary.csproj">
+      <Project>{DFCC2954-5CA1-4071-A57C-1B66B6CF5B03}</Project>
+      <Name>ChallengeTwoLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

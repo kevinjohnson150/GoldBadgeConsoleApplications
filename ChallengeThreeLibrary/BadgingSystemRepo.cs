@@ -9,11 +9,18 @@ namespace ChallengeThreeLibrary
     public class BadgingSystemRepo
     {
         Dictionary<int, List<string>> _badgeDictionary = new Dictionary<int, List<string>>();
-
+        
         //Create
-        public void AddBadgeToDictionary (BadgingSystem badge)
+        public bool AddBadgeToDictionary (BadgingSystem badge)
         {
+            if(badge is null)
+            {
+                return false;
+            }
+
             _badgeDictionary.Add(badge.BadgeID, badge.DoorNames);
+
+            return true;
         }
 
         //Read
@@ -25,12 +32,6 @@ namespace ChallengeThreeLibrary
             }
             return null;
         }
-
-        //Update
-      //  public bool UpdateDoorsForBadges(int badgeID, BadgingSystem badge)
-       // {
-            
-       // }
 
         //Delete
 

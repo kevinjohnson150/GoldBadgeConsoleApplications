@@ -27,7 +27,7 @@ namespace ChallengeThreeApp
                     "2. Edit A Badge\n" +
                     "3. List All Badges\n" +
                     "10. Exit\n" +
-                    "----------------------------------------------------\n");
+                    "\n\n--------------------------------------------------\n");
 
                 string input = Console.ReadLine();
                 switch (input)
@@ -98,7 +98,15 @@ namespace ChallengeThreeApp
             Console.Clear();
             Dictionary<int, List<string>> badgeDictionary = _badgeDictionaryRepo.GetBadgeList();
 
-            Console.WriteLine(badgeDictionary);
+            foreach (var content in badgeDictionary)
+            {
+                Console.WriteLine($"Badge ID: {content.Key}\n");
+
+                foreach(var item in content.Value)
+                {
+                    Console.WriteLine($"Has access to: {item}");
+                }
+            }
         }
 
         public void EditBadge()
@@ -110,7 +118,13 @@ namespace ChallengeThreeApp
 
             if (badgeToUpdate != null)
             {
-                Console.WriteLine($"{badgeID} has access to the door/doors: {badgeToUpdate} \n");
+                Console.Clear();
+                Console.WriteLine($"{badgeToUpdate.BadgeID} \n");
+                Console.WriteLine("Has access to: ");
+                foreach (var item in badgeToUpdate.DoorNames)
+                {
+                    Console.WriteLine($"{item}\n");
+                }
                 
             }
 
@@ -147,16 +161,15 @@ namespace ChallengeThreeApp
             BadgingSystem badge1 = new BadgingSystem(12, new List<string> {"Door 156", "Door 51" });
             BadgingSystem badge2 = new BadgingSystem(95, new List<string> { "Door 51", "Door 1" });
             BadgingSystem badge3 = new BadgingSystem(8, new List<string> { "Door 23", "Door 5" });
-            BadgingSystem badge4 = new BadgingSystem(8, new List<string> { "Door 19", "Door 87" });
-            BadgingSystem badge5 = new BadgingSystem(8, new List<string> { "Door 31", "Door 64" });
-            BadgingSystem badge6 = new BadgingSystem(8, new List<string> { "Door 72", "Door 51" });
+            BadgingSystem badge4 = new BadgingSystem(56, new List<string> { "Door 19", "Door 87" });
+            BadgingSystem badge5 = new BadgingSystem(21, new List<string> { "Door 31", "Door 64" });
+            BadgingSystem badge6 = new BadgingSystem(6, new List<string> { "Door 72", "Door 51" });
             _badgeDictionaryRepo.AddBadgeToDictionary(badge1);
             _badgeDictionaryRepo.AddBadgeToDictionary(badge2);
             _badgeDictionaryRepo.AddBadgeToDictionary(badge3);
             _badgeDictionaryRepo.AddBadgeToDictionary(badge4);
             _badgeDictionaryRepo.AddBadgeToDictionary(badge5);
             _badgeDictionaryRepo.AddBadgeToDictionary(badge6);
-
         }
    }
 }
